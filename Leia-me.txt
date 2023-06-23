@@ -1,0 +1,24 @@
+Considerações gerais:
+
+Exe desenvolvido na versão Delphi 7.
+
+O arquivo "config.ini" guarda as configurações do local do banco de dados e dados de acesso.
+
+A pasta "Dados" contém uma base já criada.
+
+A pasta "Scripts" contém o script de criação das tabelas.
+
+A pasta "Fonte\Classes" contém:
+
+- frmPrever: classe já existente do Delphi para controle de impressão e visualização.
+- Synopse: classe para exportação do relatório para PDF.
+
+Cada CRUD/Cadastro possui botões padrão de operação e navegação, e contemplam uma sub-tela de pesquisa.
+
+Na digitação em lote foram programadas validações dos dados.
+
+Foi implementada uma nova ferramenta de importação de arquivo CSV para facilitar a carga inicial da base de dados (um botão de "explicações" detalha o layout do arquivo esperado).
+
+
+Anselmo Carmona
+(11) - 98678-8079
