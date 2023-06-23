@@ -1,0 +1,46 @@
+create table Fazenda
+(
+  idFazenda integer not null,
+  Nome varchar(50) not null unique
+);
+
+alter table Fazenda
+add constraint Fazenda_PK primary key (idFazenda);
+
+create generator GEN_Fazenda_ID;
+set generator GEN_Fazenda_ID to 0;
+
+create trigger TrigFazenda for Fazenda
+active before insert position 0
+as
+begin
+  if (new.idFazenda is null) then
+    new.idFazenda = gen_id(GEN_Fazenda_ID, 1);
+end;
+
+
+
+create table Animal
+(
+  idAnimal integer not null,
+  Identificacao varchar(15) not null unique,
+  CodFazenda integer not null
+);
+
+alter table Animal
+add constraint Animal_PK primary key (idAnimal);
+
+alter table Animal
+add constraint Animal_FK_Fazenda foreign key (CodFazenda)
+references Fazenda (idFazenda);
+
+create generator GEN_Animal_ID;
+set generator GEN_Animal_ID to 0;
+
+create trigger TrigAnimal for Animal
+active before insert position 0
+as
+begin
+  if (new.idAnimal is null) then
+    new.idAnimal = gen_id(GEN_Animal_ID, 1);
+end;
